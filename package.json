@@ -1,5 +1,6 @@
 {
-  "homepage": ".",
+ "homepage": "https://venkatsai0811.github.io/FarmMinds"
+,
   "version": "0.1.0",
   "private": true,
   "dependencies": {

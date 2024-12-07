@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { DarkModeProvider } from './components/DarkModeContext';
+import {  Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Admin from './components/Admin/Admin';
@@ -19,7 +19,6 @@ import AdminLogin from './AdminLogin';
 import { CartProvider } from '../src/components/CartContext';
 
 // Import LanguageContext and wrap the app with LanguageProvider
-import { LanguageProvider } from './context/LanguageContext';
 import EmailSender from './pages/EmailSender';
 import PaymentQRCode from './Services/PaymentQRCode';  // Import the PaymentQRCode component
 
@@ -37,10 +36,9 @@ function App() {
   };
 
   return (
-    <LanguageProvider> {/* Wrap the entire app with LanguageProvider */}
-      <DarkModeProvider>
+    
         <CartProvider> {/* Wrap with CartProvider */}
-          <Router>
+          <BrowserRouter basename="/FarmMinds">
             <AppNavbar /> {/* Conditionally render Navbar */}
             <Routes>
               <Route path="/" element={<LandingPage />} />
@@ -61,10 +59,9 @@ function App() {
               <Route path="/categories" element={<Categories onCategorySelect={onCategorySelect} />} />
               <Route path="/payment-qr" element={<PaymentQRCode />} /> {/* Add route for PaymentQRCode */}
             </Routes>
-          </Router>
+          </BrowserRouter>
         </CartProvider>
-      </DarkModeProvider>
-    </LanguageProvider>
+     
   );
 }
 
