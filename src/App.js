@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { DarkModeProvider } from './components/DarkModeContext';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
