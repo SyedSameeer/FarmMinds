@@ -1,178 +1,273 @@
 /* General styling for the navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 70px;
 }
 
-/* Left side: FarmMinds logo, Navigation links, Categories, Cart, Profile */
-.navbar-left {
-    display: flex;
-    align-items: center;
-}
-
+/* Logo Styling */
 .navbar-logo h1 {
-    font-size: 30px;
-    color: #004d00;
-    margin: 0;
-    font-weight: bold;
-    margin-right: 40px; /* Space between logo and links */
+  font-size: 30px;
+  color: #004d00;
+  font-weight: bold;
+  margin: 0;
 }
 
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust this to increase or decrease the gap */
+}
 .navbar-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px; /* Increase the gap between links */
 }
 
 .navbar-links li {
-    margin-left: 20px; /* Space between links */
-    position: relative; /* Set position for the li */
+  position: relative;
 }
 
 .navbar-links a {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease; /* Transition for color change */
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  position: relative; /* Required for pseudo-element */
+  padding-bottom: 8px; /* Add space between text and underline */
 }
 
 .navbar-links a:hover {
-    color: #004d00; /* Change text color on hover */
+  color: #004d00;
 }
 
-/* Hover underline animation */
+/* Add the underline on hover */
 .navbar-links a::after {
-    content: ''; /* Create a pseudo-element */
-    display: block;
-    width: 0; /* Initial width is 0 */
-    height: 3px; /* Thickness of the underline */
-    background: #004d00; /* Color of the underline */
-    transition: width 0.3s ease; /* Animation for width change */
-    position: absolute; /* Position it relative to the parent */
-    left: 0; /* Align it to the left */
-    bottom: -5px; /* Position it below the text */
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Increased space between text and underline */
+  left: 0;
+  width: 0;
+  height: 4px; /* Adjust the height of the underline */
+  background-color: #004d00;
+  transition: width 0.3s ease; /* Smooth transition */
+  border-radius: 2px; /* Curved edges for the underline */
 }
 
 .navbar-links a:hover::after {
-    width: 100%; /* Expand width to 100% on hover */
+  width: 100%; /* Expand the underline on hover */
 }
 
-/* Move Categories, Cart, and Profile to the left with links */
-.navbar-actions {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-}
-
+/* Dropdown Menu */
 .categories {
-    position: relative; /* Position for the dropdown */
+  position: relative;
 }
 
-.categories-link {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.categories-link:hover {
-    color: #004d00; /* Change color on hover */
+.categories-link:hover ~ .dropdown {
+  display: block;
 }
 
 .dropdown {
-    display: none; /* Hide the dropdown by default */
-    position: absolute; /* Position it absolutely */
-    top: 100%; /* Position below the link */
-    left: 0; /* Align to the left */
-    background: white; /* Background color of the dropdown */
-    border: 1px solid #ccc; /* Border around the dropdown */
-    z-index: 1000; /* Ensure it's above other elements */
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .categories:hover .dropdown {
-    display: block; /* Show dropdown on hover */
+  display: block;
+  opacity: 1;
 }
 
 .dropdown-menu {
-    list-style: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .dropdown-menu li {
-    padding: 10px 20px; /* Padding for each item */
+  padding: 10px 20px;
 }
 
 .dropdown-menu li a {
-    text-decoration: none;
-    color: #333;
-    display: block; /* Make links block elements */
-    transition: background 0.3s ease; /* Transition for background change */
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background 0.3s ease;
 }
 
 .dropdown-menu li a:hover {
-    background: #f0f0f0; /* Background color on hover */
+  background: #f0f0f0;
 }
 
+/* Cart and Profile Buttons */
+.navbar-right {
+  display: flex;
+  gap: 20px;
+  padding-right: 30px; /* Add padding to keep buttons within screen */
+}
 
 .cart-button, .profile-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #333;
-    margin-left: 20px;
-    cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
 }
 
 .cart-button:hover, .profile-button:hover {
-    color: #004d00;
+  color: #004d00;
 }
 
-/* Centered Search Bar Styling */
-.navbar-center {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
+/* Add margin to the top of page content to avoid overlap with the fixed navbar */
+.page-content {
+  margin-top: 70px; /* Adjust the top margin based on the height of your navbar */
 }
 
-.search-container {
-    position: relative;
-    width: 400px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-center {
+      display: none;
+  }
+  /* Ensure the navbar items are well aligned */
+.navbar-right {
+  display: flex;
+  align-items: center;
 }
 
-.search-bar {
-    width: 100%;
-    padding: 10px 40px; /* Padding to make room for the icon */
-    border-radius: 25px; /* Curved search bar */
-    border: 1px solid #ccc;
-    font-size: 16px;
-    outline: none;
+.google-translate-container {
+  margin-left: 20px; /* Adjust this as needed */
 }
 
-/* Search Icon Inside the Search Bar */
-.search-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #333;
+.select-language {
+  font-size: 14px; /* Adjust this as needed */
 }
 
-/* Adjust padding for body content so it's not hidden behind the fixed navbar */
-body {
-    padding-top: 120px;
+}
+.navbar-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  
+}
+
+.location-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #004d00;
+  cursor: pointer;
+}
+/* Fullscreen Modal Background */
+.map-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2000;
+}
+
+.map-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.map-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  height: 70%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-button:hover {
+  color: #004d00;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    width: 95%;
+    height: 60%;
+  }
+
+}
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.profile-dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.profile-dropdown-menu li a,
+.profile-dropdown-menu li button {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-dropdown-menu li button:hover,
+.profile-dropdown-menu li a:hover {
+  background: #f0f0f0;
 }

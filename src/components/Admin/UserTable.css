@@ -1,0 +1,90 @@
+/* Add User Button Styling */
+.add-user-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.add-user-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-user-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* General button styling */
+.edit-btn, .delete-btn {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+/* Modal styling */
+.confirm-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirm-modal button {
+  margin: 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.confirm-modal button:nth-child(1) {
+  background-color: #4caf50;
+  color: white;
+}
+
+.confirm-modal button:nth-child(2) {
+  background-color: #f44336;
+  color: white;
+}
+
+.confirm-modal button:hover {
+  transform: scale(1.05);
+}

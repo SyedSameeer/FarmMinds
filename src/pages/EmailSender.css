@@ -1,0 +1,104 @@
+.email-sender {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.email-sender h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.email-sender input[type="text"],
+.email-sender textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.email-sender input[type="text"]:focus,
+.email-sender textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
+}
+
+.email-sender textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+.email-sender button {
+    background-color: #667eea;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.email-sender button:hover {
+    background-color: #5a67d8;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+}
+
+.email-sender button:active {
+    transform: scale(0.98);
+}
+
+/* Button animation */
+.email-sender button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: transform 0.4s ease;
+    transform: scale(0);
+    border-radius: 50%;
+}
+
+.email-sender button:active::after {
+    transform: scale(1);
+    transition: transform 0s;
+}
+
+/* Success message styling */
+.response-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #4caf50;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Animation for success message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

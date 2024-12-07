@@ -1,0 +1,226 @@
+/* Checkout page styles */
+.checkout-page {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  /* Main container for the checkout page */
+  .checkout-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hover effect for the container */
+  .checkout-container:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Heading styles */
+  .checkout-page h1, .checkout-page h2 {
+    color: #ff9900;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form layout */
+  .checkout-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .checkout-step {
+    flex: 1 1 45%;
+    min-width: 450px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout-step h3 {
+    color: #ff9900;
+    margin-bottom: 15px;
+  }
+  
+  /* Input fields and textareas */
+  .checkout-page input[type="text"], 
+  .checkout-page input[type="number"], 
+  .checkout-page select, 
+  .checkout-page textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  /* Focus effect for input fields */
+  .checkout-page input:focus, 
+  .checkout-page select:focus, 
+  .checkout-page textarea:focus {
+    border-color: #ff9900;
+    outline: none;
+  }
+  
+  /* States dropdown (for Address form) */
+  .checkout-page select {
+    padding-right: 40px;
+  }
+  
+  /* Address form styling */
+  .address-form label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .address-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Payment form styling */
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Order summary section */
+  .order-summary {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-summary h3 {
+    color: #ff9900;
+    margin-bottom: 15px;
+  }
+  
+  .order-summary p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Buttons */
+  .checkout-page button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  /* Primary Button */
+  .checkout-page .primary-btn {
+    background-color: #ff9900;
+    color: white;
+  }
+  
+  .checkout-page .primary-btn:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+  }
+  
+  /* Secondary Button */
+  .checkout-page .secondary-btn {
+    background-color: #ccc;
+    color: black;
+  }
+  
+  .checkout-page .secondary-btn:hover {
+    background-color: #bbb;
+    transform: scale(1.05);
+  }
+  
+  /* Error message styling */
+  .checkout-page .error-text {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive design for mobile */
+  @media screen and (max-width: 768px) {
+    .checkout-steps {
+      flex-direction: column;
+    }
+  
+    .checkout-step {
+      flex: 1 1 100%;
+      min-width: 100%;
+    }
+  }
+  /* Add styles for the QR section */
+.qr-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.qr-section button {
+  margin-top: 20px;
+  background-color: #ff9900;
+  color: white;
+}
+
+.qr-section button:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+.qr-section .error-text {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Style for loading state */
+.qr-section .loading {
+  font-size: 16px;
+  color: #ff9900;
+}
+/* Order Success Message */
+.order-success {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.order-success h2 {
+  color: #ff9900;
+  font-size: 24px;
+}
+
+.order-success p {
+  font-size: 18px;
+  color: #333;
+}
+
+.order-success .primary-btn {
+  background-color: #ff9900;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-success .primary-btn:hover {
+  background-color: #e68900;
+}

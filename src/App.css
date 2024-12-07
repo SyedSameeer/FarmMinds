@@ -1,38 +1,17 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+body {
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for dark mode */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dark-mode {
+  background-color: #121212; /* Dark background for the body */
+  color: #ffffff; /* Light text color for the body */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* If you want to target specific components, do so like this */
+.dark-mode .navbar {
+  background-color: #333; /* Dark background for navbar */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* You can add other global styles for dark mode here */

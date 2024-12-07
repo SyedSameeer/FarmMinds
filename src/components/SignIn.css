@@ -1,65 +1,110 @@
-/* General body styling */
-body {
+signin-body {
   margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-   /* Path to your background image */
-  background-size: cover;
-  background-position: center;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-/* Sign-in container behind the form */
 .signin-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh;
 }
 
-/* Sign-in box styling */
 .signin-box {
-  background-color: rgba(106, 210, 101, 0.8); /* White background with transparency */
-  padding: 30px; /* Padding around the content */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  width: 400px; /* Increased width for larger container */
-  text-align: center; /* Center text within the boxes */
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
 }
 
-/* Input fields styling */
-input {
-  width: 100%; /* Full width */
-  padding: 12px; /* Padding inside input fields */
-  margin: 10px 0; /* Space between input fields */
-  border: 1px solid #ccc; /* Border styling */
-  border-radius: 5px; /* Rounded corners for input */
+h2 {
+  color: #333;
+  margin-bottom: 20px;
 }
 
-/* Button styling */
-button {
-  width: 100%; /* Full width */
-  padding: 12px; /* Padding inside buttons */
-  background-color: #4CAF50; /* Green background color */
-  color: white; /* White text */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
+label {
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
 }
 
-/* Hover effect for buttons */
-button:hover {
-  background-color: #ededed; /* Darker green on hover */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-/* Link styling inside form */
-a {
-  color: #000000; /* Green link color */
-  text-decoration: none; /* No underline */
+.captcha-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
-a:hover {
-  text-decoration: underline; /* Underline on hover */
+.error {
+  color: red;
+}
+
+.signin-button {
+  padding: 10px;
+  background-color: #169916;
+  color: #f2f2f2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.signin-button:hover {
+  background-color: #26d143;
+}
+
+.forgot-password, .signup-redirect {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.signup-redirect button {
+  background-color: #169916;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.signup-redirect button:hover {
+  background-color: #26d143;
+}
+
+.admin-button {
+  background-color: #169916;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.admin-button:hover {
+  background-color: #26d143;
 }

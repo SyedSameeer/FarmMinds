@@ -1,0 +1,62 @@
+/* FarmAdmin Sidebar Styles */
+.farmadmin-sidebar {
+    background-color: #40ca40; /* Gray-900 */
+    color: rgb(12, 205, 45);
+    width: 16rem; /* 64 */
+    min-height: 100vh;
+    padding: 1rem; /* 4 */
+  }
+  
+  .farmadmin-sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* 2 */
+    margin-bottom: 2rem; /* 8 */
+    padding: 0.5rem;
+  }
+  
+  .farmadmin-sidebar-logo {
+    width: 2rem; /* 8 */
+    height: 2rem; /* 8 */
+    color: #38a169; /* Green-400 */
+  }
+  
+  .farmadmin-sidebar-title {
+    font-size: 1.25rem; /* XL */
+    font-weight: bold;
+  }
+  
+  .farmadmin-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .farmadmin-sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* 3 */
+    padding: 0.75rem; /* 3 */
+    border-radius: 0.5rem; /* LG */
+    margin-bottom: 0.5rem; /* 2 */
+    background-color: transparent;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .farmadmin-sidebar-item:hover {
+    background-color: #40ca40; /* Gray-800 */
+  }
+  
+  .farmadmin-sidebar-item.farmadmin-active {
+    background-color: #40ca40; /* Green-600 */
+    color: white;
+  }
+  
+  .farmadmin-sidebar-icon {
+    width: 1.25rem; /* 5 */
+    height: 1.25rem; /* 5 */
+  }
+  
+  .farmadmin-sidebar-label {
+    font-size: 1rem;
+  }
+  

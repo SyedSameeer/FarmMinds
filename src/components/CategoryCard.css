@@ -1,0 +1,65 @@
+/* General styles for the category card */
+.category-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Header area with icon and product count */
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .category-icon {
+    padding: 0.75rem;
+    background-color: #c6f6d5;
+    border-radius: 0.75rem;
+  }
+  
+  .category-product-count {
+    font-size: 0.875rem;
+    color: #4a5568;
+  }
+  
+  /* Category name and description */
+  .category-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .category-description {
+    color: #718096;
+    margin-bottom: 1rem;
+  }
+  
+  /* View products link */
+  .view-products {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #38a169;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .view-products:hover {
+    transform: translateX(5px);
+  }
+  
+  .arrow-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  

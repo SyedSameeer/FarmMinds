@@ -1,114 +1,148 @@
-import React from 'react';
-import './FarmerHomepage.css';
-import FarmerNavbar from './FarmerNavbar'; // Import your existing FarmerNavbar component
+import React, { useState } from "react";
+import axios from "axios"; // Import axios to make HTTP requests
+import "./FarmerHomepage.css";
 
-const FarmerHomePage = () => {
+const FarmerDashboard = () => {
+  const [product, setProduct] = useState({
+    name: "",
+    type: "Rice",
+    price: "",
+    quantity: "",
+    image: null,
+  });
+
+  const [sales, setSales] = useState([]);
+  const [totalSales, setTotalSales] = useState(0);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProduct({ ...product, [name]: value });
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProduct({ ...product, image: file }); // Save the file object directly
+    }
+  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (product.name && product.type && product.price && product.quantity && product.image) {
+      try {
+        const formData = new FormData();
+        formData.append("name", product.name);
+        formData.append("type", product.type);
+        formData.append("price", product.price);
+        formData.append("quantity", product.quantity);
+        formData.append("image", product.image); // Append the file object, not Base64 data
+  
+        // Send the product data as form data to the backend
+        const response = await axios.post("http://localhost:8080/api/products", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+  
+        if (response.status === 201) {
+          alert("Product added successfully!");
+          setSales([...sales, product]);
+          setTotalSales(totalSales + product.price * product.quantity);
+          setProduct({ name: "", type: "Rice", price: "", quantity: "", image: null });
+        }
+      } catch (error) {
+        console.error("Error adding product:", error);
+        alert("Failed to add product.");
+      }
+    } else {
+      alert("Please fill all fields and upload an image.");
+    }
+  };
+  
+
   return (
-    <div className="farmer-homepage">
-      <FarmerNavbar />
-
-      {/* Hero Section with background image */}
-      <div className="hero-section" style={{ backgroundImage: `url(${require('./images/hero-farm.jpg')})` }}>
-        <div className="hero-content">
-          <h1>Your Gateway to Profitable Farming</h1>
-          <p>Connect with buyers and sell your crops efficiently.</p>
-          <button className="cta-button">Sell Now</button>
-        </div>
+    <div className="farmer-dashboard-custom">
+      <h1 className="dashboard-title">Farmer Dashboard</h1>
+      <div className="product-form-custom">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Product Name"
+            value={product.name}
+            onChange={handleInputChange}
+            required
+            className="input-field-custom"
+          />
+          <select
+            name="type"
+            value={product.type}
+            onChange={handleInputChange}
+            required
+            className="dropdown-custom"
+          >
+            <option value="Rice">Rice</option>
+            <option value="Wheat">Wheat</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Pulses">Pulses</option>
+            <option value="Other">Other</option>
+          </select>
+          <input
+            type="number"
+            name="price"
+            placeholder="Price per Unit"
+            value={product.price}
+            onChange={handleInputChange}
+            required
+            className="input-field-custom"
+          />
+          <input
+            type="number"
+            name="quantity"
+            placeholder="Quantity"
+            value={product.quantity}
+            onChange={handleInputChange}
+            required
+            className="input-field-custom"
+          />
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            required
+            className="input-field-custom"
+          />
+          <button type="submit" className="submit-btn-custom">
+            Add Product
+          </button>
+        </form>
       </div>
 
-      {/* Key Features Section */}
-      <div className="key-features-section">
-        <div className="feature">
-          <img src={require('./images/fruit.jpg')} alt="Easy Selling" />
-          <h3>Easy Selling</h3>
-          <p>Seamless process to sell your crops.</p>
-        </div>
-        <div className="feature">
-          <img src={require('./images/fruit.jpg')} alt="Market Prices" />
-          <h3>Market Prices</h3>
-          <p>Get real-time market prices for your crops.</p>
-        </div>
-        <div className="feature">
-          <img src={require('./images/fruit.jpg')} alt="Inventory Management" />
-          <h3>Inventory Management</h3>
-          <p>Track and manage your inventory effortlessly.</p>
-        </div>
-        <div className="feature">
-          <img src={require('./images/fruit.jpg')} alt="Buyer Connections" />
-          <h3>Buyer Connections</h3>
-          <p>Connect directly with potential buyers.</p>
-        </div>
-      </div>
-
-      {/* Featured Products Section */}
-      <div className="featured-products-section">
-        <h2>Featured Products</h2>
-        <div className="product-grid">
-          <div className="product-card">
-            <img src={require('./images/fruit.jpg')} alt="Onion" />
-            <h4>Onion</h4>
-          </div>
-          <div className="product-card">
-            <img src={require('./images/fruit.jpg')} alt="Tomato" />
-            <h4>Tomato</h4>
-          </div>
-          {/* Add more product cards */}
+      <div className="sales-summary-custom">
+        <h2 className="summary-title">Sales Summary</h2>
+        {sales.length > 0 ? (
+          <ul className="sales-list-custom">
+            {sales.map((sale, index) => (
+              <li key={index} className="sales-item-custom">
+                <div>
+                  {sale.image && <img src={URL.createObjectURL(sale.image)} alt={sale.name} className="product-image-custom" />}
+                  <p>
+                    {sale.quantity} x {sale.name} ({sale.type}) - ₹{sale.price * sale.quantity}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="no-sales-text">No sales yet. Start selling!</p>
+        )}
+        <div className="total-sales-custom">
+          <strong>Total Sales: ₹{totalSales}</strong>
         </div>
       </div>
-
-      {/* Sell Your Products Section */}
-      <div className="sell-products-section">
-        <h2>Sell Your Products</h2>
-        <p>Follow these steps to get started:</p>
-        <ul>
-          <li>Step 1: Register your account.</li>
-          <li>Step 2: Upload your product details.</li>
-          <li>Step 3: Start receiving offers from buyers.</li>
-        </ul>
-        <button className="cta-button">Start Selling</button>
-      </div>
-
-      {/* Real-Time Market Prices Section */}
-      <div className="market-prices-section">
-        <h2>Real-Time Market Prices</h2>
-        <ul>
-          <li>Wheat: $100</li>
-          <li>Rice: $90</li>
-          <li>Fruits: $120</li>
-          {/* Add more products */}
-        </ul>
-      </div>
-
-      {/* Success Stories Section */}
-      <div className="success-stories-section">
-        <h2>Success Stories</h2>
-        <p>Hear from our successful farmers:</p>
-        {/* Testimonials or stories */}
-      </div>
-
-      {/* Resources Section */}
-      <div className="resources-section">
-        <h2>Resources & Blog Posts</h2>
-        {/* Add blog articles or video links */}
-      </div>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="quick-links">
-          <h3>Quick Links</h3>
-          {/* Add links */}
-        </div>
-        <div className="social-media">
-          <h3>Follow Us</h3>
-          {/* Add social media icons */}
-        </div>
-        <div className="contact-info">
-          <h3>Contact Us</h3>
-          {/* Add contact details */}
-        </div>
-      </footer>
     </div>
   );
 };
 
-export default FarmerHomePage;
+export default FarmerDashboard;

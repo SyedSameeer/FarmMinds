@@ -1,7 +1,7 @@
 /* General Homepage container */
 .homepage {
-    margin-top: 1600px; /* Adjust this value based on your navbar height */
-    display: flex;
+    margin-top: 800px; /* Adjust this value based on your navbar height */
+    display: contents;
     flex-direction: column;
 }
 
@@ -325,4 +325,4 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-}
+}  

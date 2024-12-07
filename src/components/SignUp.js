@@ -1,72 +1,183 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './SignUp.css'; // Import the CSS file for styles
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+import './SignUp.css';
 
 function SignUp() {
-  const [name, setName] = useState(''); // State for the name field
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const navigate = useNavigate(); // For navigation
+  const [userType, setUserType] = useState('farmer');
+  const [govtId, setGovtId] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate password match
     if (password !== confirmPassword) {
-      alert("Passwords don't match!");
+      setErrorMessage("Passwords don't match!");
       return;
     }
-    
-    // Mock sign-up process
-    console.log('Signing up with:', { name, email, password });
 
-    // After successful sign-up, redirect to SignIn page
-    navigate('/signin'); // Redirect to the SignIn page
+    const userData = {
+      name,
+      email,
+      password,
+      userType,
+      ...(userType === 'farmer' && { govtId, phoneNumber }), // Include only for farmers
+      address,
+    };
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/signup', userData, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true, // Necessary for sending cookies with CORS
+      });
+
+      if (response.status === 200 || response.status === 201) {
+        navigate('/signin'); // Redirect on success
+      } else {
+        setErrorMessage('Sign-up failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Sign-up error:', error.response?.data || error.message);
+      setErrorMessage(error.response?.data?.message || 'Sign-up failed. Please check your details and try again.');
+    }
   };
 
   return (
     <div className="signup-container">
       <div className="signup-box">
         <h2>Sign Up</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleSubmit}>
+          <div className="user-type">
+            <label>
+              <input
+                type="radio"
+                value="farmer"
+                checked={userType === 'farmer'}
+                onChange={() => setUserType('farmer')}
+              />
+              Farmer
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="buyer"
+                checked={userType === 'buyer'}
+                onChange={() => setUserType('buyer')}
+              />
+              Buyer
+            </label>
+          </div>
+
           <div>
-            <label>Name:</label>
+            <label htmlFor="name">Name:</label>
             <input
+              id="name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              required // Making the name field required
+              required
+              className="input-field"
             />
           </div>
           <div>
-            <label>Email:</label>
+            <label htmlFor="email">Email:</label>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required // Making the email field required
+              required
+              className="input-field"
             />
           </div>
           <div>
-            <label>Password:</label>
+            <label htmlFor="password">Password:</label>
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required // Making the password field required
+              required
+              className="input-field"
             />
           </div>
           <div>
-            <label>Confirm Password:</label>
+            <label htmlFor="confirmPassword">Confirm Password:</label>
             <input
+              id="confirmPassword"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              required // Making the confirm password field required
+              required
+              className="input-field"
             />
           </div>
-          <button type="submit">Sign Up</button>
+
+          {userType === 'farmer' && (
+            <>
+              <div>
+                <label htmlFor="govtId">Government ID:</label>
+                <input
+                  id="govtId"
+                  type="text"
+                  value={govtId}
+                  onChange={(e) => setGovtId(e.target.value)}
+                  required
+                  className="input-field"
+                />
+              </div>
+              <div>
+                <label htmlFor="address">Address:</label>
+                <input
+                  id="address"
+                  type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  required
+                  className="input-field"
+                />
+              </div>
+              <div>
+                <label htmlFor="phoneNumber">Phone Number:</label>
+                <input
+                  id="phoneNumber"
+                  type="tel"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  required
+                  className="input-field"
+                />
+              </div>
+            </>
+          )}
+
+          {userType === 'buyer' && (
+            <div>
+              <label htmlFor="address">Address:</label>
+              <input
+                id="address"
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                required
+                className="input-field"
+              />
+            </div>
+          )}
+          <button type="submit" className="submit-button">Sign Up</button>
         </form>
-        <p>Already have an account? <a href="/signin">Sign In</a></p>
+        <p>
+          Already have an account? <Link to="/signin">Sign In</Link>
+        </p>
       </div>
     </div>
   );

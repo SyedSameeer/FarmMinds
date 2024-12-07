@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './Homepage.css'; // Import your CSS
 import Navbar from './Navbar'; // Import the Navbar
+import { useNavigate } from 'react-router-dom';
 
 function Homepage() {
+  const navigate = useNavigate();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [
         require('./images/cover1.jpg'),
@@ -54,30 +56,30 @@ function Homepage() {
 
             {/* Featured Products Section */}
             <section className="featured-products">
-      <h2>Our Products</h2>
+            <h2>Our Products</h2>
       <h3 className="offer-title">What We Offer</h3>
       <div className="product-grid">
-        <div className="product-box" onClick={() => window.location.href = '/fruits'}>
+        <div className="product-box" onClick={() => navigate('/products')}>
           <img src={require('./images/fruit.jpg')} alt="Fruits" />
           <div className="product-text">Fruits</div>
         </div>
-        <div className="product-box" onClick={() => window.location.href = '/vegetables'}>
+        <div className="product-box" onClick={() => navigate('/products')}>
           <img src={require('./images/fruits.jpg')} alt="Vegetables" />
           <div className="product-text">Vegetables</div>
         </div>
-        <div className="product-box" onClick={() => window.location.href = '/herbs'}>
+        <div className="product-box" onClick={() => navigate('/products')}>
           <img src={require('./images/herbs.jpg')} alt="Herbs" />
           <div className="product-text">Herbs</div>
         </div>
-        <div className="product-box" onClick={() => window.location.href = '/berries'}>
+        <div className="product-box" onClick={() => navigate('/products')}>
           <img src={require('./images/berries.jpg')} alt="Berries" />
           <div className="product-text">Berries</div>
         </div>
-        <div className="product-box" onClick={() => window.location.href = '/vegboxes'}>
+        <div className="product-box" onClick={() => navigate('/vegboxes')}>
           <img src={require('./images/vegboxes.jpg')} alt="Veg Boxes" />
           <div className="product-text">Veg Basket</div>
         </div>
-        <div className="product-box" onClick={() => window.location.href = '/dairy'}>
+        <div className="product-box" onClick={() => navigate('/products')}>
           <img src={require('./images/dairy.jpg')} alt="Dairy" />
           <div className="product-text">Dairy</div>
         </div>
