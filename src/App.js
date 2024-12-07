@@ -40,7 +40,7 @@ function App() {
     <LanguageProvider> {/* Wrap the entire app with LanguageProvider */}
       <DarkModeProvider>
         <CartProvider> {/* Wrap with CartProvider */}
-          <Router>
+          <BrowserRouter basename="/FarmMinds">
             <AppNavbar /> {/* Conditionally render Navbar */}
             <Routes>
               <Route path="/" element={<LandingPage />} />
@@ -61,7 +61,7 @@ function App() {
               <Route path="/categories" element={<Categories onCategorySelect={onCategorySelect} />} />
               <Route path="/payment-qr" element={<PaymentQRCode />} /> {/* Add route for PaymentQRCode */}
             </Routes>
-          </Router>
+          </BrowserRouter>
         </CartProvider>
       </DarkModeProvider>
     </LanguageProvider>
