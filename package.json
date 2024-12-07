@@ -1,6 +1,6 @@
 {
- "homepage": "https://venkatsai0811.github.io/FarmMinds"
-,
+"homepage": "https://venkatsai0811.github.io/FarmMinds",
+
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -27,14 +27,14 @@
     "web-vitals": "^2.1.4",
     "zod": "^3.23.8"
   },
-  "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+ "scripts": {
+  "predeploy": "npm run build",
+  "deploy": "git add . && git commit -m 'Deploy to master' && git push origin master",
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+},
   "eslintConfig": {
     "extends": [
       "react-app",
