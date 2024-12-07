@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/FarmMinds/static/css/main.e5e804f2.css",
+    "main.js": "/FarmMinds/static/js/main.f2a3d822.js",
+    "static/js/453.69f3745b.chunk.js": "/FarmMinds/static/js/453.69f3745b.chunk.js",
+    "static/media/cover2.jpg": "/FarmMinds/static/media/cover2.b20effc4937036e1e403.jpg",
+    "static/media/carrots.jpg": "/FarmMinds/static/media/carrots.e5ff5adbd961e025250e.jpg",
+    "static/media/vegboxes.jpg": "/FarmMinds/static/media/vegboxes.b6751e53208d2c869e5d.jpg",
+    "static/media/s3.jpg": "/FarmMinds/static/media/s3.a30e7b8fdcb91d273ab0.jpg",
+    "static/media/cover1.jpg": "/FarmMinds/static/media/cover1.b053ffc38548ee7828f8.jpg",
+    "static/media/s2.jpg": "/FarmMinds/static/media/s2.995cb77950d2b4f074f7.jpg",
+    "static/media/fruit.jpg": "/FarmMinds/static/media/fruit.14d9a4cee55a3cc45f09.jpg",
+    "static/media/farm1.jpg": "/FarmMinds/static/media/farm1.7b605c3836af64dd9e9c.jpg",
+    "static/media/s4.jpg": "/FarmMinds/static/media/s4.3a494acfbe4e54daf5b4.jpg",
+    "static/media/cover4.jpg": "/FarmMinds/static/media/cover4.a1b907c2cb6115305a61.jpg",
+    "static/media/dairy.jpg": "/FarmMinds/static/media/dairy.9f81c6dca93a0bf27d0e.jpg",
+    "static/media/cover3.jpg": "/FarmMinds/static/media/cover3.bbe4185663afcaede58e.jpg",
+    "static/media/o.jpg": "/FarmMinds/static/media/o.aab3c3f4b0f2f6545645.jpg",
+    "static/media/s5.jpg": "/FarmMinds/static/media/s5.f4237030b8b0e09bc5da.jpg",
+    "static/media/s6.jpg": "/FarmMinds/static/media/s6.fdbd0b1a6b6a00636570.jpg",
+    "static/media/s1.jpg": "/FarmMinds/static/media/s1.e51f9d95bfefd3402c3f.jpg",
+    "static/media/berries.jpg": "/FarmMinds/static/media/berries.bae9ef3d0f91ed6e287e.jpg",
+    "static/media/herbs.jpg": "/FarmMinds/static/media/herbs.dc3462726e462d039374.jpg",
+    "static/media/fruits.jpg": "/FarmMinds/static/media/fruits.abf60e6c06857e900fa1.jpg",
+    "static/media/nuts.jpeg": "/FarmMinds/static/media/nuts.b35ca94c175521a038f8.jpeg",
+    "index.html": "/FarmMinds/index.html",
+    "main.e5e804f2.css.map": "/FarmMinds/static/css/main.e5e804f2.css.map",
+    "main.f2a3d822.js.map": "/FarmMinds/static/js/main.f2a3d822.js.map",
+    "453.69f3745b.chunk.js.map": "/FarmMinds/static/js/453.69f3745b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5e804f2.css",
+    "static/js/main.f2a3d822.js"
+  ]
+}
