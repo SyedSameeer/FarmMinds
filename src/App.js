@@ -32,8 +32,9 @@ const AppNavbar = () => {
 
 function App() {
   const onCategorySelect = (category) => {
-    console.log('You selected the category: ${category}');
+    console.log(`You selected the category: ${category}`);
   };
+  
 
   return (
     
