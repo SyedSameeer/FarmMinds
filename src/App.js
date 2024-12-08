@@ -1,6 +1,7 @@
 import React from 'react'; // Keep this import if it's being used
 import { Routes, Route, useLocation } from 'react-router-dom'; // Correct import style
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Admin from './components/Admin/Admin';
@@ -39,7 +40,7 @@ function App() {
   return (
     
         <CartProvider> {/* Wrap with CartProvider */}
-          <BrowserRouter basename="/FarmMinds">
+          <HashRouter basename="/FarmMinds">
             <AppNavbar /> {/* Conditionally render Navbar */}
             <Routes>
               <Route path="/" element={<LandingPage />} />
@@ -60,7 +61,7 @@ function App() {
               <Route path="/categories" element={<Categories onCategorySelect={onCategorySelect} />} />
               <Route path="/payment-qr" element={<PaymentQRCode />} /> {/* Add route for PaymentQRCode */}
             </Routes>
-          </BrowserRouter>
+            </HashRouter>
         </CartProvider>
      
   );
