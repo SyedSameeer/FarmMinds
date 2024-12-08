@@ -9,7 +9,7 @@ function SignIn() {
     const [role, setRole] = useState('Farmer');
     const [captcha, setCaptcha] = useState('');
     const [userCaptcha, setUserCaptcha] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState(''); // Only use state if it's being used in the component
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -104,8 +104,9 @@ function SignIn() {
                     <button type="submit" className="signin-button">Sign In</button>
                 </form>
                 <div className="forgot-password">
-                    <a href="#" onClick={goToForgotPassword}>Forgot Password?</a>
-                </div>
+    <button onClick={goToForgotPassword} className="link-button">Forgot Password?</button>
+</div>
+
                 <div className="signup-redirect">
                     <p>Don't have an account?</p>
                     <button onClick={goToSignUp}>Create an Account</button>

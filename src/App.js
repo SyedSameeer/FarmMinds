@@ -1,5 +1,5 @@
-import React from 'react';
-import {  Routes, Route, useLocation } from 'react-router-dom';
+import React from 'react'; // Keep this import if it's being used
+import { Routes, Route, useLocation } from 'react-router-dom'; // Correct import style
 import { BrowserRouter } from "react-router-dom";
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -8,7 +8,7 @@ import Buyer from './components/Buyer/Buyer';
 import LandingPage from './components/LandingPage';
 import Homepage from './components/Homepage';
 import FarmerHomepage from './components/Farmer/FarmerHomepage';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar'; // Check for unused imports
 import Products from './pages/Products';
 import About from './pages/About';
 import Categories from './pages/Categories';

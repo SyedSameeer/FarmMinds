@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, Award, Clock, Heart, ShoppingCart, Star, User } from 'lucide-react';
+import { Leaf, Award, Clock, Heart, } from 'lucide-react';
 import './LandingPage.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
  
@@ -61,18 +61,13 @@ export default function LandingPage() {
       <section className="products container">
         <h2>Featured Products</h2>
         <div className="products-grid">
-          {products.map(product => (
-            <div key={product.id} className="product-card">
-              <img src={product.img} alt={product.name} />
-              <h3>{product.name}</h3>
-              <p>by {product.farmer}</p>
-              <div className="rating">
-                <Star className="icon-sm" /> <span>{product.rating}</span>
-              </div>
-              <p className="price">{product.price} <span>{product.unit}</span></p>
-              <button className="btn-primary"><ShoppingCart /> Buy Now</button>
-            </div>
-          ))}
+        {products.map((product) => (
+  <div key={product.id} className="product-card">
+    <img src={product.img} alt={product.name} />
+    <h3>{product.name}</h3>
+  </div>
+))}
+
         </div>
       </section>
 
