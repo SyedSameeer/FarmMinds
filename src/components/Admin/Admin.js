@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/users");
+        const response = await axios.get("https://springbootsdpdeploymentfarmminds.up.railway.app//api/users");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -23,7 +23,7 @@ export default function AdminDashboard() {
 
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/products");
+        const response = await axios.get("https://springbootsdpdeploymentfarmminds.up.railway.app//api/products");
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);

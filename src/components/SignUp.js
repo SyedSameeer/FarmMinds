@@ -34,7 +34,7 @@ function SignUp() {
     };
 
     try {
-      const response = await axios.post('springbootsdpdeploymentfarmminds.up.railway.app/api/signup', userData, {
+      const response = await axios.post('https://springbootsdpdeploymentfarmminds.up.railway.app/api/signup', userData, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true, // Necessary for sending cookies with CORS
       });

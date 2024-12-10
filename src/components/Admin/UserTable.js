@@ -14,7 +14,7 @@ function UserTable() {
     }, []);
 
     function fetchUsers() {
-        axios.get("http://localhost:8080/api/users")
+        axios.get("https://springbootsdpdeploymentfarmminds.up.railway.app/api/users")
             .then((response) => {
                 setUsers(response.data);
             })
@@ -30,7 +30,7 @@ function UserTable() {
     }
 
     function confirmDelete() {
-        axios.delete("http://localhost:8080/api/delete", {
+        axios.delete("https://springbootsdpdeploymentfarmminds.up.railway.app/api/delete", {
             params: { email: emailToDelete }
         })
         .then(() => {
@@ -53,7 +53,7 @@ function UserTable() {
     }
 
     function handleUpdate() {
-        axios.put("http://localhost:8080/api/update", editUser)
+        axios.put("https://springbootsdpdeploymentfarmminds.up.railway.app/api/update", editUser)
             .then(() => {
                 fetchUsers();
                 setEditUser(null);
@@ -90,7 +90,7 @@ function UserTable() {
             newUser.phone = document.getElementById("phoneAdd").value;
         }
 
-        axios.post("http://localhost:8080/api/add", newUser)
+        axios.post("https://springbootsdpdeploymentfarmminds.up.railway.app/api/add", newUser)
             .then(() => {
                 fetchUsers();
                 document.getElementById("addUserForm").style.display = "none";

@@ -38,7 +38,7 @@ const FarmerDashboard = () => {
         formData.append("image", product.image); // Append the file object, not Base64 data
   
         // Send the product data as form data to the backend
-        const response = await axios.post("http://localhost:8080/api/products", formData, {
+        const response = await axios.post("https://springbootsdpdeploymentfarmminds.up.railway.app/api/products", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
