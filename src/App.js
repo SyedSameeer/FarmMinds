@@ -42,7 +42,7 @@ function App() {
           <BrowserRouter basename="/FarmMinds">
             <AppNavbar /> {/* Conditionally render Navbar */}
             <Routes>
-              <Route path="/" element={<LandingPage />} />
+              <Route path="/" element={<SignIn />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/adminlogin" element={<AdminLogin />} />
@@ -55,7 +55,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/admindashboard" element={<AdminDashboard />} />
-              <Route path="/products/:category" element={<Products />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/email" element={<EmailSender />} />
               <Route path="/categories" element={<Categories onCategorySelect={onCategorySelect} />} />
               <Route path="/payment-qr" element={<PaymentQRCode />} /> {/* Add route for PaymentQRCode */}
