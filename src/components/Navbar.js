@@ -67,7 +67,7 @@ function Navbar() {
       <div className="navbar-center">
         <ul className="navbar-links">
           <li><Link to="/homepage">Home</Link></li>
-          <li><a href="#about">About</a></li>
+          <li><Link to="/about">About</Link></li>
           <li><Link to="/products">Products</Link></li>
           <li><Link to="/blog">Blogs</Link></li>
           <li className="categories">
