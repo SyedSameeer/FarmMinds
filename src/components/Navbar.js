@@ -52,7 +52,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <h1>FarmMinds</h1>
+        <h1>FarmMind</h1>
       </div>
 
       {/* Deliver To Section */}
