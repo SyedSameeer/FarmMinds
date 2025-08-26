@@ -31,7 +31,7 @@ function Homepage() {
                     <img src={images[currentImageIndex]} alt="Cover Slideshow" className="cover-image" />
                     <div className="text-box">
                         <h1 className="welcome-text">
-                            Welcome to <span className="green-text">FarmMinds</span>
+                            Welcome to <span className="green-text">FarmLinds</span>
                         </h1>
                     </div>
                 </div>
